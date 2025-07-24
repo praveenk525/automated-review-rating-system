@@ -1,0 +1,12 @@
+# Data manipulation
+pandas
+
+# Visualization
+matplotlib
+seaborn
+
+# Machine Learning
+scikit-learn
+
+# Natural Language Processing
+nltk
