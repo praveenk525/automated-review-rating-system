@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Review Rating System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='static.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>⭐ Review Rating System</h1>
+
+        <form method="POST" action="/">
+            <textarea name="review" placeholder="Enter your review here...">{{ review_text }}</textarea>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if error_message %}
+        <div class="error">{{ error_message }}</div>
+        {% endif %}
+
+        <div class="results">
+            {% if result_a %}
+            <div class="card">
+                <h2>{{ result_a.title }}</h2>
+                <p class="pred-label">Prediction</p>
+                <p class="pred-value">{{ result_a.pred }}</p>
+                <p class="stars">{{ result_a.stars }}</p>
+                <h3>Class Probabilities</h3>
+                <ul class="probs">
+                    {% for label, prob in result_a.probs %}
+                    <li>
+                        <span class="prob-label">{{ label }}</span>
+                        <div class="bar">
+                            <div class="bar-fill" style="width: {{ prob }}%"></div>
+                        </div>
+                        <span class="prob-pct">{{ prob }}%</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if result_b %}
+            <div class="card">
+                <h2>{{ result_b.title }}</h2>
+                <p class="pred-label">Prediction</p>
+                <p class="pred-value">{{ result_b.pred }}</p>
+                <p class="stars">{{ result_b.stars }}</p>
+                <h3>Class Probabilities</h3>
+                <ul class="probs">
+                    {% for label, prob in result_b.probs %}
+                    <li>
+                        <span class="prob-label">{{ label }}</span>
+                        <div class="bar">
+                            <div class="bar-fill" style="width: {{ prob }}%"></div>
+                        </div>
+                        <span class="prob-pct">{{ prob }}%</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>
