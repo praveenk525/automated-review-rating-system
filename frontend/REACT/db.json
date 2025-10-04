@@ -1,0 +1,14 @@
+{
+  "reviews": [
+    {
+      "id": 1,
+      "author": "Sarah M.",
+      "rating": 5,
+      "title": "Excellent quality and fast delivery!",
+      "content": "I was impressed with the build quality of this product...",
+      "date": "August 15, 2025",
+      "verified": true,
+      "helpful": 23
+    }
+  ]
+}
